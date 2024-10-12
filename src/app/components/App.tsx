@@ -1,45 +1,56 @@
-import React from 'react';
-import logo from '../assets/logo.svg';
+import React, { useState, useEffect } from 'react';
 import '../styles/ui.css';
 
 function App() {
-  const textbox = React.useRef<HTMLInputElement>(undefined);
+  const [selectedName, setSelectedName] = useState<string | null>(null);
+  const [buttonText, setButtonText] = useState('Copy to cursor');
 
-  const countRef = React.useCallback((element: HTMLInputElement) => {
-    if (element) element.value = '5';
-    textbox.current = element;
-  }, []);
-
-  const onCreate = () => {
-    const count = parseInt(textbox.current.value, 10);
-    parent.postMessage({ pluginMessage: { type: 'create-rectangles', count } }, '*');
+  const onCopyToCursor = () => {
+    parent.postMessage({ pluginMessage: { type: 'copy-to-clipboard' } }, '*');
   };
 
-  const onCancel = () => {
-    parent.postMessage({ pluginMessage: { type: 'cancel' } }, '*');
+  const copyToClipboard = (text: string) => {
+    const textArea = document.createElement('textarea');
+    textArea.value = text;
+    document.body.appendChild(textArea);
+    textArea.select();
+    try {
+      document.execCommand('copy');
+      console.log('Data copied to clipboard');
+      setButtonText('Copied!');
+    } catch (err) {
+      console.error('Failed to copy data: ', err);
+      setButtonText('Copy failed');
+    }
+    document.body.removeChild(textArea);
+    setTimeout(() => setButtonText('Copy to cursor'), 2000);
   };
 
-  React.useEffect(() => {
-    // This is how we read messages sent from the plugin controller
+  useEffect(() => {
     window.onmessage = (event) => {
-      const { type, message } = event.data.pluginMessage;
-      if (type === 'create-rectangles') {
-        console.log(`Figma Says: ${message}`);
+      const { type, name, data } = event.data.pluginMessage;
+      if (type === 'selection-change') {
+        setSelectedName(name);
+      } else if (type === 'clipboard-data') {
+        if (data) {
+          copyToClipboard(data);
+        } else {
+          console.error('No data to copy');
+          setButtonText('No data');
+          setTimeout(() => setButtonText('Copy to cursor'), 2000);
+        }
       }
     };
   }, []);
 
   return (
     <div>
-      <img src={logo} />
-      <h2>Rectangle Creator</h2>
-      <p>
-        Count: <input ref={countRef} />
-      </p>
-      <button id="create" onClick={onCreate}>
-        Create
-      </button>
-      <button onClick={onCancel}>Cancel</button>
+      {selectedName && (
+        <div>
+          <h3>Selected Element: {selectedName}</h3>
+          <button onClick={onCopyToCursor}>{buttonText}</button>
+        </div>
+      )}
     </div>
   );
 }
