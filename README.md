@@ -1,10 +1,44 @@
-# Figma Plugin React Template
+# Figma Layer Properties Copier
 
-![62862431-71537f00-bd0e-11e9-85db-d97c0fb729a4](https://user-images.githubusercontent.com/16322616/62862692-46b5f600-bd0f-11e9-93b0-75955d1de8f3.png)
+This plugin allows you to copy all the properties of any group or frame and its child layers in Figma, enabling easy recreation in code using Cursor.
 
-This template contains the react example as shown on [Figma Docs](https://www.figma.com/plugin-docs/intro/), with some structural changes and extra tooling.
+## Installation
 
-## Quickstart
+1. Download this project.
+2. Open Figma and navigate to `Plugins` -> `Development` -> `Import plugin from manifest...`
+3. Choose the `manifest.json` file from this project directory.
+
+## Usage
+
+1. Select a frame or group in Figma (ensure it's not a component; detach if necessary).
+2. Run the plugin and click "Copy to Clipboard".
+3. In Cursor, use the "design this" command and specify the desired positioning.
+4. Paste the copied properties.
+
+## Development
+
+- Run `yarn` to install dependencies.
+- Run `yarn build:watch` to start webpack in watch mode.
+
+## Build Commands
+
+### For Development
+
+- `yarn build:watch`: Starts webpack in watch mode for development.
+
+### For Production
+
+- `yarn build`: Builds the plugin for production.
+
+## Tooling
+
+This project uses:
+
+- React + Webpack
+- TypeScript
+- Prettier precommit hook
+
+## Quickstart for Developers
 
 - Run `yarn` to install dependencies.
 - Run `yarn build:watch` to start webpack in watch mode.
@@ -13,11 +47,3 @@ This template contains the react example as shown on [Figma Docs](https://www.fi
 ⭐ To change the UI of your plugin (the react code), start editing [App.tsx](./src/app/components/App.tsx).  
 ⭐ To interact with the Figma API edit [controller.ts](./src/plugin/controller.ts).  
 ⭐ Read more on the [Figma API Overview](https://www.figma.com/plugin-docs/api/api-overview/).
-
-## Toolings
-
-This repo is using:
-
-- React + Webpack
-- TypeScript
-- Prettier precommit hook

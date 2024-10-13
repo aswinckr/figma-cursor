@@ -1,5 +1,5 @@
 {
-  "name": "Figma Cursor",
+  "name": "Figma to Cursor",
   "id": "00000000",
   "api": "1.0.0",
   "main": "dist/code.js",

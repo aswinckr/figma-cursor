@@ -44,11 +44,20 @@ function App() {
   }, []);
 
   return (
-    <div>
-      {selectedName && (
-        <div>
-          <h3>Selected Element: {selectedName}</h3>
-          <button onClick={onCopyToCursor}>{buttonText}</button>
+    <div className="app">
+      {selectedName ? (
+        <div className="selected-element">
+          <h3 className="subtitle">Selected Element</h3>
+          <div className="element-name">{selectedName}</div>
+          <button className="copy-button" onClick={onCopyToCursor}>
+            {buttonText}
+          </button>
+        </div>
+      ) : (
+        <div className="frame-preview">
+          <div className="frame-content">
+            <p>Select a frame or group to start</p>
+          </div>
         </div>
       )}
     </div>
