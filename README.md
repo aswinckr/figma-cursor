@@ -1,4 +1,4 @@
-# Figma Layer Properties Copier
+# Figma To Cursor Plugin
 
 This plugin allows you to copy all the properties of any group or frame and its child layers in Figma, enabling easy recreation in code using Cursor.
 
