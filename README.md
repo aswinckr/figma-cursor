@@ -1,6 +1,10 @@
 # Figma To Cursor Plugin
 
+[![How to use](https://img.youtube.com/vi/SJKkHbjniJw/0.jpg)](https://www.youtube.com/watch?v=SJKkHbjniJw)
+
 This plugin allows you to copy all the properties of any group or frame and its child layers in Figma, enabling easy recreation in code using Cursor.
+
+NOTE: Use this for smaller frames or groups with few child layers, and incrementally compose them. Using it on multiple nested layers can lead to errors. 
 
 ## Installation
 
