@@ -5,6 +5,7 @@ This plugin allows you to copy all the properties of any group or frame and its 
 ## Installation
 
 1. Download this project.
+2. Open the project folder in a terminal and run `yarn install` && `yarn build`
 2. Open Figma and navigate to `Plugins` -> `Development` -> `Import plugin from manifest...`
 3. Choose the `manifest.json` file from this project directory.
 
