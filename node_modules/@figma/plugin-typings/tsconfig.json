@@ -1,9 +1,0 @@
-{
-  "compilerOptions": {
-    "target": "es6",
-    // Figma plugins run in an environment with es6 but no browser symbols.
-    "lib": ["es6"],
-    "noEmit": true,
-    "strict": true,
-  }
-}
