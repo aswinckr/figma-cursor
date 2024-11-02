@@ -1,4 +1,5 @@
-figma.showUI(__html__);
+// Set initial window size to 400x600 pixels
+figma.showUI(__html__, { width: 400, height: 600 });
 
 function getAllNodeDetails(node: SceneNode) {
   return {
