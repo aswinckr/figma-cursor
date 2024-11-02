@@ -1,3 +1,6 @@
+
+<img width="1482" alt="Figma Cursor" src="https://github.com/user-attachments/assets/795d12b2-ada4-4df2-970d-7c977d603fa3">
+
 # Figma To Cursor Plugin
 
 This plugin allows you to copy all the properties of any group or frame and its child layers in Figma, enabling easy recreation in code using Cursor.
