@@ -1,6 +1,8 @@
 {
   "name": "Figma to Cursor",
-  "id": "00000000",
+  "id": "1434599500152464568",
+  "networkAccess": { "allowedDomains": ["https://designwithprompts.com"] },
+  "documentAccess": "dynamic-page",
   "api": "1.0.0",
   "main": "dist/code.js",
   "ui": "dist/ui.html",
